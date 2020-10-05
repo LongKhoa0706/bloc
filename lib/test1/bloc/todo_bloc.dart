@@ -13,15 +13,15 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
   List<Todo> _listTodo = List();
   TodoBloc() : super(TodoInitial());
 
+
+
   @override
   Stream<TodoState> mapEventToState(TodoEvent event,
   ) async* {
    try{
      if (event is TodoEvenFetch) {
        yield TodoStateLoading();
-       print('vo');
        _listTodo = await _repository.todo.fetchDataTodo();
-       print(_listTodo.length);
        yield TodoStateFetched(_listTodo);
      }
    }catch(e){
@@ -31,8 +31,6 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
 
   }
   List<Todo> get listTodo => _listTodo;
-
-
 }
 
 
