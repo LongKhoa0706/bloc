@@ -14,6 +14,7 @@ class DatabaseProvider {
   Future<Database> get database async {
     if (_database != null) return _database;
     _database = await createDatabase();
+
     return _database;
   }
 

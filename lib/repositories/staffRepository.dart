@@ -8,4 +8,6 @@ class StaffRepository{
 
   Future getAllStaff() => staffDao.getAllStaff();
 
+  Future deleteStaff(int id ) => staffDao.deleteStaff(id);
+
 }

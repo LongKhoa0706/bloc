@@ -19,11 +19,11 @@ class StaffBloc extends Bloc<StaffEvent, StaffState> {
     if (event is StaffEventAddStaff) {
         try{
           await repository.staffRepository.insertStaff(event.staff);
-          print(event.staff.email);
         }catch(e){
             print(e);
         }
     }
+
     if (event is StaffEventGetStaff) {
       try{
         List<Staff> listStaff =   await repository.staffRepository.getAllStaff();
@@ -32,5 +32,10 @@ class StaffBloc extends Bloc<StaffEvent, StaffState> {
         print(e);
       }
     }
+    if (event is StaffEvenDeleteStaff) {
+      await repository.staffRepository.deleteStaff(event.id);
+    }
   }
+
+
 }

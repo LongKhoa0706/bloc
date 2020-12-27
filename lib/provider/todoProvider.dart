@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 
 class TodoProvider {
   var dio = Dio();
-
   Future<List<Todo>> getListTodo() async {
     List<Todo> todoList = List();
     String url = 'https://jsonplaceholder.typicode.com/posts';

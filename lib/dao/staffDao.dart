@@ -17,4 +17,9 @@ class StaffDao {
     List<Staff> listStaff = result.map((e) => Staff.fromJson(e)).toList();
     return listStaff;
   }
+  Future<int>deleteStaff(int id ) async {
+    final db = await databasee.database;
+    var result = await db.delete('staff',where: "id = ? ",whereArgs: [id]);
+    return result;
+  }
 }

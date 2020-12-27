@@ -18,3 +18,9 @@ class StaffEventAddStaff extends StaffEvent {
 class StaffEventGetStaff extends StaffEvent {
 
 }
+class StaffEvenDeleteStaff extends StaffEvent {
+  final int id;
+
+  StaffEvenDeleteStaff(this.id);
+
+}
