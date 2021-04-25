@@ -11,6 +11,9 @@ class InitialStaffState extends StaffState {
 
 }
 
+class StaffStateAddSuccess extends StaffState{
+
+}
 class StaffStateGetStaff extends StaffState {
   StaffStateGetStaff(List<Staff> listStaff) : super(listStaff: listStaff);
 }

@@ -2,8 +2,6 @@ part of 'staff_bloc.dart';
 
 @immutable
 abstract class StaffEvent {
-
-
   @override
   String toString() => runtimeType.toString();
 }
@@ -15,7 +13,8 @@ class StaffEventAddStaff extends StaffEvent {
 
 }
 
-class StaffEventGetStaff extends StaffEvent {
+
+class StaffEventFetchStaff extends StaffEvent {
 
 }
 class StaffEvenDeleteStaff extends StaffEvent {

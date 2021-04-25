@@ -7,6 +7,7 @@ class StaffDao {
 
   Future<int> createStaff(Staff staff) async {
     final db = await databasee.database;
+
     var result = await db.insert('staff', staff.toJson());
     print(result.toString());
      return result;

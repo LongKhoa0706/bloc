@@ -17,25 +17,28 @@ class StaffBloc extends Bloc<StaffEvent, StaffState> {
   @override
   Stream<StaffState> mapEventToState(StaffEvent event) async* {
     if (event is StaffEventAddStaff) {
-        try{
-          await repository.staffRepository.insertStaff(event.staff);
-        }catch(e){
-            print(e);
-        }
+
+      try {
+        await repository.staffRepository.insertStaff(event.staff);
+        await repository.staffRepository.getAllStaff();
+        yield StaffStateAddSuccess();
+      } catch (e) {
+        print(e);
+      }
     }
 
-    if (event is StaffEventGetStaff) {
-      try{
-        List<Staff> listStaff =   await repository.staffRepository.getAllStaff();
-          yield StaffStateGetStaff(listStaff);
-      }catch(e){
+    if (event is StaffEventFetchStaff) {
+      try {
+        List<Staff> listStaff = await repository.staffRepository.getAllStaff();
+        yield StaffStateGetStaff(listStaff);
+      } catch (e) {
         print(e);
       }
     }
     if (event is StaffEvenDeleteStaff) {
       await repository.staffRepository.deleteStaff(event.id);
+      yield StaffStateAddSuccess();
+
     }
   }
-
-
 }
